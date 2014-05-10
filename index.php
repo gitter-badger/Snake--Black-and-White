@@ -42,7 +42,6 @@ $app_name = idx($app_info, 'name', '');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
     <title><?php echo he($app_name); ?></title>
-    <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
     <!-- These are Open Graph tags.  They add meta data to your  -->
     <!-- site that facebook uses when your content is shared     -->
     <!-- over facebook.  You should fill these tags in with      -->
