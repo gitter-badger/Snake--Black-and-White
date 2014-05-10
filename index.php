@@ -38,6 +38,7 @@ $app_name = idx($app_info, 'name', '');
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
   <head>
+    <link rel="stylesheet" href="stylesheets/main.css"> </link>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
@@ -113,13 +114,6 @@ $app_name = idx($app_info, 'name', '');
       });
     </script>
 
-    <!--[if IE]>
-      <script type="text/javascript">
-        var tags = ['header', 'section'];
-        while(tags.length)
-          document.createElement(tags.pop());
-      </script>
-    <![endif]-->
   </head>
   <body>
     <div id="fb-root"></div>
@@ -173,9 +167,9 @@ $app_name = idx($app_info, 'name', '');
       <?php } ?>
     </header>
     
-    <section id="game">
+    <div id="game">
 	<canvas width="100%" height="400px" style="border:2px solid black;"> </canvas>
-    </section>
+    </div>
 
   </body>
 </html>
