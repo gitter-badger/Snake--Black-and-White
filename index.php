@@ -151,7 +151,7 @@ $app_name = idx($app_info, 'name', '');
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
-	Hello World
+    <div id="greeting"> Hello, <?php echo $basic['name']; ?> </div>
 
   </body>
 </html>

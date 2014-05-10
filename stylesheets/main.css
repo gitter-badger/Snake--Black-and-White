@@ -3,3 +3,8 @@ body {
 	padding: 0px;
 	background-image:url('http://www.zingerbug.com/Backgrounds/background_images/baby_blue_and_white_mini_grid_seamless_tileable_background_pattern.gif');
 }
+
+#greeting {
+	margin-left:100px;
+	margin-top:30px;
+}
