@@ -1,0 +1,26 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(100,100,100);
+	overflow:hidden;
+}
+
+#mario_game {
+	margin:10px;
+/*	background-image: url('Images/background.png');   */
+	background-color:white;
+	border: 1px solid black;
+}
+
+#score_coins {
+	padding: 10px;
+	padding-top: 20px;
+	position:fixed;
+	top:50px;
+	right:50px;
+	width:100px;
+	height:80px;
+	background-color:yellow;
+	font-family: Arial;
+	border: 2px solid black;
+}
