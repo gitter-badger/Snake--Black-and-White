@@ -29,7 +29,7 @@
 
 		<body>
 			<div id="header">
-
+				Here will be the header!
 			</div>
 			<table> 
 				<tr>
