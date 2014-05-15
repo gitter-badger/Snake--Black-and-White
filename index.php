@@ -55,7 +55,7 @@
 			document.getElementById("leaderboard").setAttribute("width", (window.innerWidth -canvas_width) + "px");
 			document.getElementById("leaderboard").setAttribute("height", (window.innerHeight - canvas_height) + "px");
 
-			document.getElementById("header").setAttribute("width", (window.innerWidth-30)+"px");
-			document.getElementById("header").setAttribute("height",(window.innerHeight - canvas_height - 50) + "px");	
+			document.getElementById("header").setAttribute("style", "width:" + (window.innerWidth-30) + "px;" + "height:" + (window.innerHeight - canvas_height) + "px;");
+
 		</script>
 	</html>
