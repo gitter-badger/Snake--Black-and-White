@@ -20,7 +20,6 @@
 				}
 
 				#header {
-					height:200px;
 					border:1px solid black;
 				}
 
@@ -57,6 +56,6 @@
 			document.getElementById("leaderboard").setAttribute("height", (window.innerHeight - canvas_height) + "px");
 
 			document.getElementById("header").setAttribute("width", (window.innerWidth-30)+"px");
-			
+			document.getElementById("header").setAttribute("height",(window.innerHeight - canvas_height - 50) + "px");	
 		</script>
 	</html>
