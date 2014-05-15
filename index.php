@@ -26,8 +26,8 @@
 			var canvas = document.getElementById("canvas");
 			var context = document.getElementById("context");
 
-			canvas.setAttribute("width", window.innerWidth+"px");
-			canvas.setAttribute("height", window.innerHeight+"px");
+			canvas.setAttribute("width", 600+"px");
+			canvas.setAttribute("height",400+"px");
 
 		</script>
 
