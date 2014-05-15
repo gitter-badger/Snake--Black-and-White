@@ -18,11 +18,16 @@
 		</head>
 
 		<body>
-			 <canvas id="canvas" width="100%" height="100%"> </canvas>
+			 <canvas id="canvas"> </canvas>
 		
 			
 		</body>
 		<script>
+			var canvas = document.getElementById("canvas");
+			var context = document.getElementById("context");
+
+			canvas.setAttribute("width", window.innerWidth+"px");
+			canvas.setAttribute("height", window.innerHeight+"px");
 
 		</script>
 
