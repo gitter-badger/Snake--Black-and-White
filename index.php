@@ -30,6 +30,4 @@
 			canvas.setAttribute("height",400+"px");
 
 		</script>
-
 	</html>
-
