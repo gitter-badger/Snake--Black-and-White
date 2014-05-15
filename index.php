@@ -58,4 +58,5 @@
 			document.getElementById("header").setAttribute("style", "width:" + (window.innerWidth-30) + "px;" + "height:" + (window.innerHeight - canvas_height) + "px;");
 
 		</script>
+		<!-- -->
 	</html>
