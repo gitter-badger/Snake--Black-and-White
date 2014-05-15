@@ -46,8 +46,8 @@
 		<script>
 			var canvas = document.getElementById("canvas");
 			var context = document.getElementById("context");
-			var canvas_width = 800
-			var canvas_height = 600
+			var canvas_width = 750
+			var canvas_height = 500
 
 			canvas.setAttribute("width", canvas_width+"px");
 			canvas.setAttribute("height",canvas_height+"px");
