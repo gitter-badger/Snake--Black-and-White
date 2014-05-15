@@ -14,11 +14,23 @@
 					background-color:black;
 				}
 
+				#leaderboard {
+					overflow:scroll;
+				}
+
 			</style>
 		</head>
 
 		<body>
-			 <canvas id="canvas"> </canvas>
+			<table> 
+				<tr>
+					<td>
+						<canvas id="canvas"> </canvas>
+					</td>
+					<td id="leaderboard">
+						LeaderBoard
+					</td>
+				</tr>
 		
 			
 		</body>
@@ -28,6 +40,9 @@
 
 			canvas.setAttribute("width", 600+"px");
 			canvas.setAttribute("height",400+"px");
+
+			document.getElementById("leaderboard").setAttribute("width", (window.innerWidth -600) + "px");
+			document.getElementById("leaderboard").setAttribute("height", (window.innerHeight - 400) + "px");
 
 		</script>
 	</html>
