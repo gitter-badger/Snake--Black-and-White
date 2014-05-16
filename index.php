@@ -159,7 +159,7 @@
 			}
 			
 			function showGameStartButton() {
-				context.fillRect(canvas_width/2 -40, canvas_height/2 -20, 80, 20);
+				context.fillRect(canvas_width/2 -40, canvas_height/2 -35, 80, 40);
 				context.fillStyle="#000000";
 				context.fillText("Start Game", canvas_width/2-40+5, canvas_height/2-20+10);
 				context.fillStyle="#FFFFFF";
