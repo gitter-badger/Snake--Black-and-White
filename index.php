@@ -118,7 +118,7 @@
 				context.fillText("Loading Game..",100,160 + title_y_offset);
 					if(FB) {
 						FB.getLoginStatus(function(response) {
-							if (response.status === 'connected') {
+							if (response.status === 'connected' || userConnected == true) {
 								userConnected = true;
 								console.log('Logged in.');
 								showStartGameScreen = true;
@@ -129,7 +129,12 @@
 							else {
 								if(isFacebookLoginBoxOpen == false) {
 									isFacebookLoginBoxOpen = true;
-									FB.login(function(){
+									FB.login(function(response){
+										if(response.status === 'connected') {
+											userConnected = true;
+										} else {
+											isFacebookLoginBoxOpen = false;
+										}
 									}, {scope: 'publish_actions'});
 								}
 							}
