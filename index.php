@@ -376,7 +376,7 @@
 			}
 			
 			canvas.onmousedown = function(event) {
-				if(x>138 && x<400 && y>214 && y<320) {
+				if(coordinates.x>138 && coordinates.x<400 && coordinates.y>214 && coordinates.y<320) {
 					showGame = true;
 					showLoadingScreen = false;
 					showStartGameScreen = false;
