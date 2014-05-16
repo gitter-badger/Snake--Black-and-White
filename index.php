@@ -167,6 +167,7 @@
 				context.fillText("Press S to restart the game.",100,130 + title_y_offset);
 				context.font="30px Verdana";
 				context.fillText("You scored " + preHighScore + " in the last game.",100,160 + title_y_offset);
+				context.fillText("To play the game you need to post the score", 100, 450 + title_y_offset);
 				
 			}
 			
@@ -318,9 +319,10 @@
 					function(response) {
 						if (response && response.post_id) {
 						} else {
-							alert('To play the game you need to post the score on your wall');
-							if(gameNumber%4==2)
+							if(gameNumber%4==2) {
+								alert('To play the game you need to post the score on your wall');
 								postScoreToFacebook()
+							}
 						}
 					}
 					);
@@ -328,7 +330,6 @@
 			}
 			
 			function handleGameOver() {
-				context.fillText("To play the game you need to post the score", 100, 500);
 				postScoreToFacebook();
 				showLoadingScreen = false;
 				showRestartGameScreen = true;
