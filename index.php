@@ -35,7 +35,7 @@
 
 		<body>
 			<div id="header">
-				Mario Black and White
+				Snake Black and White
 			</div>
 			<table> 
 				<tr>
@@ -61,11 +61,46 @@
 			var canvas_height = 500
 			var foodLocation = {}
 			var snake = {}
+			var showStartGameScreen = true;
+			var showRestartGameScreen = false;
+			var showGame = false;
+			var title_y_offset
 			
 			canvasSettings();
 			restartGame();
 			
 			setInterval(function() {
+				if(showGame) {
+					showGamefunction();
+				} else if(showStartGameScreen) {
+					showStartGameScreenfunction();
+				} else if(showRestartGameScreen) {
+					showRestartGameScreenfunction();
+				}
+			}, 60);
+			
+			function showRestartGameScreenfunction() {
+				context.clearRect(0,0,canvas_width,canvas_height);
+			}
+			
+			function showStartGameScreenfunction() {
+				context.clearRect(0,0,canvas_width,canvas_height);			
+				if(going_up) {
+					title_y_offset++;
+					if(title_y_offset > 20) going_up = false;
+				} else {
+					title_y_offset--;
+					if(title_y_offset < -20) going_up = true;
+				}
+				
+				context.font="30px Verdana";
+				context.fillText("Snake: Black And White",100,100 + title_y_offset);
+				context.font="20px Verdana";
+				context.fillText("Press S to start the game.",100,130 + title_y_offset);
+				
+			}
+			
+			function showGamefunction() {
 				context.clearRect(0,0,canvas_width,canvas_height);
 				if(detectCollisionOfSnakeWithFood()) {
 					generateNewFood();
@@ -76,10 +111,11 @@
 				updateFrontPoints();
 				drawFood();
 				drawSnake();
-			}, 60);
+			}
 			
 			function canvasSettings() {
-			
+				going_up = true;
+				title_y_offset = 0;
 				canvas.setAttribute("width", canvas_width+"px");
 				canvas.setAttribute("height",canvas_height+"px");
 				document.getElementById("leaderboard").setAttribute("width", (window.innerWidth -canvas_width) + "px");
@@ -188,6 +224,7 @@
 			}
 			
 			window.onkeydown = function(event) {
+				
 				if(event.keyCode == 37 && moving_direction != "right") {
 					moving_direction = "left";
 				}
@@ -201,7 +238,14 @@
 					moving_direction = "down";
 				}
 				if(event.keyCode >= 37 && event.keyCode <= 40)
-					return false;			
+					return false;
+
+				if(event.keyCode = 83) {
+					showGame = true;
+					showStartGameScreen = false;
+					showRestartGameScreen = false;
+					return false;
+				} 
 			}
 		
 		</script>
