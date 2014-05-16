@@ -85,6 +85,7 @@
 			var score = 0;
 			var preHighScore
 			var userConnected = false;
+			var facebookName = ""
 			
 			canvasSettings();
 			restartGame();
@@ -119,6 +120,9 @@
 					if(FB) {
 						FB.getLoginStatus(function(response) {
 							if (response.status === 'connected' || userConnected == true) {
+								FB.api('/me', function(response) {
+									facebookName = response.name;
+								});
 								userConnected = true;
 								console.log('Logged in.');
 								showStartGameScreen = true;
@@ -131,6 +135,9 @@
 									isFacebookLoginBoxOpen = true;
 									FB.login(function(response){
 										if(response.status === 'connected') {
+											FB.api('/me', function(response) {
+												facebookName = response.name;
+											});
 											userConnected = true;
 										} else {
 											isFacebookLoginBoxOpen = false;
@@ -301,8 +308,8 @@
 			function postScoreToFacebook() {
 				FB.ui({
 						method: 'feed',
-						name: 'The Facebook SDK for Javascript',
-						caption: 'Bringing Facebook to the desktop and mobile web',
+						name: 'Snake: Black and White',
+						caption: 'The classic snake game.',
 						description: (
 						'A small JavaScript library that allows you to harness ' +
 						'the power of Facebook, bringing the user\'s identity, ' +
