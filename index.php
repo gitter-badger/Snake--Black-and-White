@@ -163,7 +163,7 @@
 				context.fillStyle="#000000";
 				context.fillText("Start Game", canvas_width/2-40+5, canvas_height/2-20+10);
 				context.fillStyle="#FFFFFF";
-				contex.font = "10px Arial";
+				context.font = "10px Arial";
 				context.fillText(coordinates.x + ", " + coordinates.y, canvas_width - 200, 100);
 			} 
 			
