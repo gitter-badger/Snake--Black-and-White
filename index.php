@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<title>
-				Mario Jumpak
+				Snake: Modi vs Pappu
 			</title>
 		
 			<style>
