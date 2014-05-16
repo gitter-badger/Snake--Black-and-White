@@ -65,6 +65,8 @@
 			var showRestartGameScreen = false;
 			var showGame = false;
 			var title_y_offset
+			var score = 0;
+			var preHighScore
 			
 			canvasSettings();
 			restartGame();
@@ -81,6 +83,21 @@
 			
 			function showRestartGameScreenfunction() {
 				context.clearRect(0,0,canvas_width,canvas_height);
+				if(going_up) {
+					title_y_offset++;
+					if(title_y_offset > 20) going_up = false;
+				} else {
+					title_y_offset--;
+					if(title_y_offset < -20) going_up = true;
+				}
+				
+				context.font="30px Verdana";
+				context.fillText("Snake: Black And White",100,100 + title_y_offset);
+				context.font="20px Verdana";
+				context.fillText("Press S to restart the game.",100,130 + title_y_offset);
+				context.font="30px Verdana";
+				context.fillText("You scored " + preHighScore + " in the last game.",100,160 + title_y_offset);
+				
 			}
 			
 			function showStartGameScreenfunction() {
@@ -103,12 +120,15 @@
 			function showGamefunction() {
 				context.clearRect(0,0,canvas_width,canvas_height);
 				if(detectCollisionOfSnakeWithFood()) {
+					score++;
 					generateNewFood();
 					increaseLengthOfSnake();
 				}
 				detectCollisionOfSnakeWithSnake();
 				updatePositionsOfOldPoints();
 				updateFrontPoints();
+				context.font = "20px Verdana";
+				context.fillText("Score: " + score, 50, 50);
 				drawFood();
 				drawSnake();
 			}
@@ -125,6 +145,8 @@
 			}
 			
 			function restartGame() {
+				preHighScore = score;
+				score = 0;
 				foodLocation = {}
 				foodLocation.width = 40;
 				foodLocation.height = 40;
@@ -140,7 +162,6 @@
 			function detectCollisionOfSnakeWithSnake() {
 				for(i=4;i<=snake.length;i++) {
 					if(detectCollision(snake.position[1], snake.position[i])) {
-						alert("Game Over");
 						handleGameOver();
 					}
 				}
@@ -215,11 +236,14 @@
 			}
 			
 			function postScoreToFacebook() {
-			
+				
 			}
 			
 			function handleGameOver() {
 				postScoreToFacebook();
+				showRestartGameScreen = true;
+				showGame = false;
+				showStartGameScreen = false;
 				restartGame();
 			}
 			
@@ -227,17 +251,16 @@
 				
 				if(event.keyCode == 37 && moving_direction != "right") {
 					moving_direction = "left";
-				}
-				if(event.keyCode == 38 && moving_direction != "down") {
+				} else if(event.keyCode == 38 && moving_direction != "down") {
 					moving_direction = "up";
 				}
-				if(event.keyCode == 39 && moving_direction != "left") {
+				else if(event.keyCode == 39 && moving_direction != "left") {
 					moving_direction = "right";
 				}
-				if(event.keyCode == 40 && moving_direction != "up") {
+				else if(event.keyCode == 40 && moving_direction != "up") {
 					moving_direction = "down";
 				}
-				if(event.keyCode >= 37 && event.keyCode <= 40)
+				if (event.keyCode >= 37 && event.keyCode <= 40)
 					return false;
 
 				if(event.keyCode = 83) {
