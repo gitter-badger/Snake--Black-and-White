@@ -368,10 +368,20 @@
 
 				if(event.keyCode = 83) {
 					showGame = true;
+					showLoadingScreen = false;
 					showStartGameScreen = false;
 					showRestartGameScreen = false;
 					return false;
 				} 
+			}
+			
+			canvas.onmousedown = function(event) {
+				if(x>138 && x<400 && y>214 && y<320) {
+					showGame = true;
+					showLoadingScreen = false;
+					showStartGameScreen = false;
+					showRestartGameScreen = false;
+				}
 			}
 		
 		</script>
