@@ -151,13 +151,15 @@
 
 			}
 			
+			coordinates = {}
+			
 			canvas.onmousemove = function(event) {
 				coordinates.x = (event.clientX - (window.innerWidth - canvas.clientWidth)/2) + 9;
 				coordinates.y = event.clientY - 50
 			}
 			
 			function showGameStartButton() {
-				context.fillRect(canvas_width-40, canvas_height-20, 80, 20);
+				context.fillRect(canvas_width/2 -40, canvas_height/2 -20, 80, 20);
 				context.fillStyle="#000000";
 				context.fillText("Start Game", canvas_width-40+5, canvas_height-20+10);
 				context.fillStyle="#FFFFFF";
