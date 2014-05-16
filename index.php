@@ -69,7 +69,7 @@
 		<script>
 		
 					
-		
+			var isFacebookLoginBoxOpen = false;
 			var canvas = document.getElementById("canvas");
 			var context = canvas.getContext("2d");
 			var moving_direction = "right"
@@ -84,6 +84,7 @@
 			var title_y_offset
 			var score = 0;
 			var preHighScore
+			var userConnected = false;
 			
 			canvasSettings();
 			restartGame();
@@ -117,7 +118,8 @@
 				context.fillText("Loading Game..",100,160 + title_y_offset);
 					if(FB) {
 						FB.getLoginStatus(function(response) {
-							if (response.status === 'connected') {
+							if (response.status === 'connected' || userConnected == true) {
+								userConnected = true;
 								console.log('Logged in.');
 								showStartGameScreen = true;
 								showGame = false;
@@ -125,7 +127,12 @@
 								showRestartGameScreen = false;
 							}
 							else {
-								FB.login(function(){}, {scope: 'publish_actions'});
+								if(isFacebookLoginBoxOpen == false) {
+									isFacebookLoginBoxOpen = true;
+									FB.login(function(){
+										userConnected = true;
+									}, {scope: 'publish_actions'});
+								}
 							}
 						});
 					}
