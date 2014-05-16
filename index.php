@@ -151,6 +151,18 @@
 
 			}
 			
+			canvas.onmousemove = function(event) {
+				coordinates.x = (event.clientX - (window.innerWidth - canvas.clientWidth)/2) + 9;
+				coordinates.y = event.clientY - 50
+			}
+			
+			function showGameStartButton() {
+				context.fillRect(canvas_width-40, canvas_height-20, 80, 20);
+				context.fillStyle="#000000";
+				context.fillText("Start Game", canvas_width-40+5, canvas_height-20+10);
+				context.fillStyle="#FFFFFF";
+			} 
+			
 			function showRestartGameScreenfunction() {
 				context.clearRect(0,0,canvas_width,canvas_height);
 				if(going_up) {
@@ -168,8 +180,8 @@
 				context.font="30px Verdana";
 				context.fillText("You scored " + preHighScore + " in the last game.",100,160 + title_y_offset);
 				context.font="15px Verdana";
-				context.fillText("To play the game you need to post the score", 100, 450 + title_y_offset);
-				
+				context.fillText("'To play the game you need to post the score once on your wall'", 100, 450 + title_y_offset);
+				showGameStartButton();
 			}
 			
 			function showStartGameScreenfunction() {
@@ -186,7 +198,7 @@
 				context.fillText("Snake: Black And White",100,100 + title_y_offset);
 				context.font="20px Verdana";
 				context.fillText("Press S to start the game.",100,130 + title_y_offset);
-				
+				showGameStartButton()
 			}
 			
 			function showGamefunction() {
@@ -294,12 +306,7 @@
 				if(snake.position[1].x < 0) snake.position[1].x = canvas_width;
 				if(snake.position[1].y > canvas_height) snake.position[1].y = 0;
 				if(snake.position[1].y < 0) snake.position[1].y = canvas_height;
-				
-				/*
-				if(snake.position[1].y > canvas_height) snake.position[1].y -= canvas_height;
-				
-				if(snake.position[1].y < canvas_height) snake.position[1].y += canvas_height;
-				*/
+	
 			}
 			
 			function drawSnake() {
@@ -321,7 +328,7 @@
 						if (response && response.post_id) {
 						} else {
 							if(gameNumber%4==2) {
-								alert('To play the game you need to post the score on your wall');
+								alert('To play the game you need to post the score once on your wall');
 								postScoreToFacebook()
 							}
 						}
@@ -364,5 +371,4 @@
 			}
 		
 		</script>
-		<!-- -->
 	</html>
