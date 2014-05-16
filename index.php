@@ -310,10 +310,7 @@
 						method: 'feed',
 						name: 'Snake: Black and White',
 						caption: 'The classic snake game.',
-						description: (
-						'' + facebookName + ' just scored '  + preHighScore ' + on Snake: Black and White ' +
-						' Try the game and challenge ' + facebookName
-						),
+						description: facebookName + ' just scored ' + preHighScore ' + on Snake: Black and White \n' + ' Try the game and challenge ' + facebookName,
 						link: 'https://apps.facebook.com/snakebandw',
 						picture: 'http://www.fbrell.com/public/f8.jpg'
 					},
