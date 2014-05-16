@@ -311,16 +311,15 @@
 						name: 'Snake: Black and White',
 						caption: 'The classic snake game.',
 						description: (
-						'A small JavaScript library that allows you to harness ' +
-						'the power of Facebook, bringing the user\'s identity, ' +
-						'social graph and distribution power to your site.'
+						'' + facebookName + ' just scored '  + preHighScore ' + on Snake: Black and White ' +
+						' Try the game and challenge ' + facebookName
 						),
-						link: 'https://developers.facebook.com/docs/reference/javascript/',
+						link: 'https://apps.facebook.com/snakebandw',
 						picture: 'http://www.fbrell.com/public/f8.jpg'
 					},
 					function(response) {
 						if (response && response.post_id) {
-							alert('Post was published.');
+							alert('Post was published.'); 
 						} else {
 							alert('Post was not published.');
 						}
