@@ -95,8 +95,7 @@
 			}
 			
 			function detectCollisionOfSnakeWithSnake() {
-				for(i=1;i<=snake.length;i++) {
-					if(i-j <= 5 || i-j <= -5) continue;
+				for(i=4;i<=snake.length;i++) {
 					if(detectCollision(snake.position[1], snake.position[i])) {
 						alert("Game Over");
 						handleGameOver();
