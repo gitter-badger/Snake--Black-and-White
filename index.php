@@ -28,7 +28,11 @@
 
 			</style>
 			<style>
-				 <script>
+			</style>
+		</head>
+
+		<body>
+			<script>
 					window.fbAsyncInit = function() {
 						FB.init({
 							appId      : '324469111034432',
@@ -45,10 +49,7 @@
 					fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
-			</style>
-		</head>
-
-		<body>
+				
 			<div id="header">
 				Snake Black and White
 			</div>
