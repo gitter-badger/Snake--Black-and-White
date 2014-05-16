@@ -96,15 +96,10 @@
 			
 			function detectCollisionOfSnakeWithSnake() {
 				for(i=1;i<=snake.length;i++) {
-					for(j=1;j<=snake.length;j++) {
-						if(i==j || i-j<=5 || i-j<=-5) {
-							console.log("checked");
-							continue;
-						}
-						if(detectCollision(snake.position[i], snake.position[j])) {
-							alert("Game Over");
-							handleGameOver();
-						}
+					if(i-j <= 5 || i-j <= -5) continue;
+					if(detectCollision(snake.position[1], snake.position[i])) {
+						alert("Game Over");
+						handleGameOver();
 					}
 				}
 			}
@@ -198,7 +193,9 @@
 				}
 				if(event.keyCode == 40 && moving_direction != "up") {
 					moving_direction = "down";
-				}			
+				}
+				if(event.keyCode >= 37 && event.keyCode <= 40)
+					return false;			
 			}
 		
 		</script>
