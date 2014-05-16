@@ -167,6 +167,7 @@
 				context.fillText("Press S to restart the game.",100,130 + title_y_offset);
 				context.font="30px Verdana";
 				context.fillText("You scored " + preHighScore + " in the last game.",100,160 + title_y_offset);
+				context.font="15px Verdana";
 				context.fillText("To play the game you need to post the score", 100, 450 + title_y_offset);
 				
 			}
