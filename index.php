@@ -77,9 +77,10 @@
 			var canvas_height = 500
 			var foodLocation = {}
 			var snake = {}
-			var showStartGameScreen = true;
+			var showStartGameScreen = false;
 			var showRestartGameScreen = false;
 			var showGame = false;
+			var showLoadingScreen = true;
 			var title_y_offset
 			var score = 0;
 			var preHighScore
@@ -88,7 +89,9 @@
 			restartGame();
 			
 			setInterval(function() {
-				if(showGame) {
+				if(showLoadingScreen) {
+					showLoadingScreenfunction();
+				} else if(showGame) {
 					showGamefunction();
 				} else if(showStartGameScreen) {
 					showStartGameScreenfunction();
@@ -96,6 +99,39 @@
 					showRestartGameScreenfunction();
 				}
 			}, 60);
+			
+			function showLoadingScreenfunction() {
+				context.clearRect(0,0,canvas_width,canvas_height);
+				if(going_up) {
+					title_y_offset++;
+					if(title_y_offset > 20) going_up = false;
+				} else {
+					title_y_offset--;
+					if(title_y_offset < -20) going_up = true;
+				}
+				
+				context.font="30px Verdana";
+				context.fillText("Snake: Black And White",100,100 + title_y_offset);
+				context.font="20px Verdana";
+
+				context.fillText("Loading Game..",100,160 + title_y_offset);
+					if(FB) {
+						FB.getLoginStatus(function(response) {
+							if (response.status === 'connected') {
+								console.log('Logged in.');
+								showStartGameScreen = true;
+								showGame = false;
+								showLoadingScreen = false;
+								showRestartGameScreen = false;
+							}
+							else {
+								FB.login(function(){}, {scope: 'publish_actions'});
+							}
+						});
+					}
+				
+
+			}
 			
 			function showRestartGameScreenfunction() {
 				context.clearRect(0,0,canvas_width,canvas_height);
@@ -277,6 +313,7 @@
 			
 			function handleGameOver() {
 				postScoreToFacebook();
+				showLoadingScreen = false;
 				showRestartGameScreen = true;
 				showGame = false;
 				showStartGameScreen = false;
