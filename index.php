@@ -68,7 +68,7 @@
 		</body>
 		<script>
 		
-					
+			var gameNumber = 0;		
 			var isFacebookLoginBoxOpen = false;
 			var canvas = document.getElementById("canvas");
 			var context = canvas.getContext("2d");
@@ -215,6 +215,7 @@
 			}
 			
 			function restartGame() {
+				gameNumber++;
 				preHighScore = score;
 				score = 0;
 				foodLocation = {}
@@ -316,9 +317,10 @@
 					},
 					function(response) {
 						if (response && response.post_id) {
-							alert('Post was published.'); 
 						} else {
-							alert('Post was not published.');
+							alert('To play the game you need to post the score on your wall');
+							if(gameNumber%4==2)
+								postScoreToFacebook()
 						}
 					}
 					);
@@ -326,6 +328,7 @@
 			}
 			
 			function handleGameOver() {
+				context.fillText("To play the game you need to post the score", 100, 500);
 				postScoreToFacebook();
 				showLoadingScreen = false;
 				showRestartGameScreen = true;
