@@ -327,7 +327,7 @@
 						caption: 'The classic snake game.',
 						description: facebookName + ' just scored ' + (score > preHighScore)?score:preHighScore + ' on Snake: Black and White \n' + ' Try the game and challenge ' + facebookName,
 						link: 'https://apps.facebook.com/snakebandw',
-						picture: 'http://www.fbrell.com/public/f8.jpg'
+						picture: 'http://i1.ytimg.com/vi/hAz4bGzXPCc/maxresdefault.jpg'
 					},
 					function(response) {
 						if (response && response.post_id) {
