@@ -184,7 +184,8 @@
 				context.font="30px Verdana";
 				context.fillText("You scored " + preHighScore + " in the last game.",100,160 + title_y_offset);
 				context.font="15px Verdana";
-				context.fillText("'To play the game you need to post the score once on your wall'", 100, 450 + title_y_offset);
+				if(gameNumber%3==2) 
+					context.fillText("'To play the game you need to post the score once on your wall'", 100, 450 + title_y_offset);
 				showGameStartButton();
 			}
 			
@@ -324,14 +325,14 @@
 						method: 'feed',
 						name: 'Snake: Black and White',
 						caption: 'The classic snake game.',
-						description: facebookName + ' just scored ' + score + ' on Snake: Black and White \n' + ' Try the game and challenge ' + facebookName,
+						description: facebookName + ' just scored ' + (score > preHighScore)?score:preHighScore + ' on Snake: Black and White \n' + ' Try the game and challenge ' + facebookName,
 						link: 'https://apps.facebook.com/snakebandw',
 						picture: 'http://www.fbrell.com/public/f8.jpg'
 					},
 					function(response) {
 						if (response && response.post_id) {
 						} else {
-							if(gameNumber%4==2) {
+							if(gameNumber%3==2) {
 								alert('To play the game you need to post the score once on your wall');
 								postScoreToFacebook()
 							}
